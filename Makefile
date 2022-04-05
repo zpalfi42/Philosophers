@@ -6,7 +6,7 @@
 #    By: zpalfi <zpalfi@student.42barcelon>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/14 12:16:53 by zpalfi            #+#    #+#              #
-#    Updated: 2022/03/28 16:05:31 by zpalfi           ###   ########.fr        #
+#    Updated: 2022/04/05 17:16:18 by zpalfi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,10 +23,14 @@ OBJS_DIR	= objs
 INC				= -I $(INCLUDE_DIR)
 
 SRC				= free.c \
+				  time.c \
+				  init.c \
+				  print.c \
 				  check.c \
 				  error.c \
 				  philo.c \
 				  utils.c \
+				  routine.c \
 
 OBJ				= $(addprefix $(OBJS_DIR)/,$(SRC:.c=.o))
 

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zpalfi <zpalfi@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/28 16:03:54 by zpalfi            #+#    #+#             */
-/*   Updated: 2022/03/28 16:05:55 by zpalfi           ###   ########.fr       */
+/*   Created: 2022/04/04 13:14:30 by zpalfi            #+#    #+#             */
+/*   Updated: 2022/04/05 17:41:58 by zpalfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,9 @@ int	check_argv(char **argv)
 {
 	int	i;
 
-	i = 1;
-	while (argv[i])
-	{
+	i = 0;
+	while (argv[++i])
 		if (!is_n(argv[i]))
 			return (0);
-		i++;
-	}
 	return (1);
 }

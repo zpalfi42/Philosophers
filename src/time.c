@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   time.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zpalfi <zpalfi@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/04 13:02:41 by zpalfi            #+#    #+#             */
-/*   Updated: 2022/04/05 17:42:06 by zpalfi           ###   ########.fr       */
+/*   Created: 2022/04/04 15:16:27 by zpalfi            #+#    #+#             */
+/*   Updated: 2022/04/05 17:25:50 by zpalfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	ft_error(char *s)
+long long int	get_time(void)
 {
-	printf("Error: %s\n", s);
-	return (0);
+	struct timeval	i;
+
+	gettimeofday(&i, NULL);
+	return ((i.tv_sec * 1000) + (i.tv_usec / 1000));
+}
+
+void	time_sleep(int i)
+{
+	long long int	now;
+
+	now = get_time();
+	while (i > get_time() - now)
+		usleep(i * 10);
 }

@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zpalfi <zpalfi@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/04 13:02:41 by zpalfi            #+#    #+#             */
-/*   Updated: 2022/04/05 17:42:06 by zpalfi           ###   ########.fr       */
+/*   Created: 2022/04/05 17:11:17 by zpalfi            #+#    #+#             */
+/*   Updated: 2022/04/05 17:25:08 by zpalfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	ft_error(char *s)
+void	print_action(t_philo *philo, char *s)
 {
-	printf("Error: %s\n", s);
-	return (0);
+	pthread_mutex_lock(&philo->data->is_writing);
+	printf("[%lld]	philosopher [%d] %s\n", (get_time()
+			- philo->data->init_time), philo->id, s);
+	pthread_mutex_unlock(&philo->data->is_writing);
 }
