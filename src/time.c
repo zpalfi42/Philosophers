@@ -6,7 +6,7 @@
 /*   By: zpalfi <zpalfi@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 15:16:27 by zpalfi            #+#    #+#             */
-/*   Updated: 2022/04/05 17:25:50 by zpalfi           ###   ########.fr       */
+/*   Updated: 2022/04/06 15:11:01 by zpalfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ void	time_sleep(int i)
 
 	now = get_time();
 	while (i > get_time() - now)
-		usleep(i * 10);
+		usleep(50);
 }
