@@ -13,7 +13,7 @@
 - A fork beetwen every philosopher. So if there are multimple philsophers there shoud be a fork to the right and left of each other.
 - To prevent multiple philosophers from using the same fork, you must protect the state each with its own mutex.
 
-## General Instructions
+## 📜 General Instructions 📜
 
 - One or more philosophers sit around a round table and they have to eat, sleep and think, not at the same time. In the center of the table here is a big bowl of spaghetti.
 - There are some forks in the table, one beetween each two philosophers. There are the same `number_of_philosophers` as forks. 
