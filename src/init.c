@@ -6,7 +6,7 @@
 /*   By: zpalfi <zpalfi@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 13:05:37 by zpalfi            #+#    #+#             */
-/*   Updated: 2022/04/05 17:42:37 by zpalfi           ###   ########.fr       */
+/*   Updated: 2022/04/08 13:49:12 by zpalfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	data_init(t_data *data, int argc, char **argv)
 	data->t_die = ft_atoi(argv[2]);
 	data->t_eat = ft_atoi(argv[3]);
 	data->t_sleep = ft_atoi(argv[4]);
-	data->all_eat = -1;
+	data->all_eat = 0;
 	data->dead = 0;
 	pthread_mutex_init(&data->is_writing, NULL);
 	pthread_mutex_init(&data->mdead, NULL);
