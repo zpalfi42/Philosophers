@@ -6,13 +6,11 @@
 /*   By: zpalfi <zpalfi@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 12:35:06 by zpalfi            #+#    #+#             */
-/*   Updated: 2022/04/08 14:17:13 by zpalfi           ###   ########.fr       */
+/*   Updated: 2022/04/08 14:42:09 by zpalfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-void	check_leaks();
 
 static int	philo_dead(t_data *data);
 
@@ -27,10 +25,7 @@ static int	init_simulation(t_data *data)
 		return (ft_error("Failed thread malloc"));
 	data->init_time = get_time();
 	while (++i < data->n_philo)
-	{
 		pthread_create(&thread[i], NULL, &routine, (void *)(&data->philo[i]));
-//		usleep(5000);
-	}
 	while (1)
 		if (philo_dead(data))
 			break ;
@@ -49,8 +44,8 @@ static int	philo_dead(t_data *data)
 	while (i < data->n_philo)
 	{
 		pthread_mutex_lock(&data->mdead);
-//		printf("%d   [%lld - %lld]   %lld\n", i + 1, get_time(), data->philo[i].last_eat, get_time() - data->philo[i].last_eat);
-		if ((data->philo[i].last_eat != 0 && data->t_die < (int)(get_time() - data->philo[i].last_eat)))
+		if ((data->philo[i].last_eat != 0
+				&& data->t_die < (int)(get_time() - data->philo[i].last_eat)))
 		{
 			if (data->dead != 1)
 				print_action(&data->philo[i], "died");

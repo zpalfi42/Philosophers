@@ -6,7 +6,7 @@
 /*   By: zpalfi <zpalfi@student.42barcelon>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 17:14:41 by zpalfi            #+#    #+#             */
-/*   Updated: 2022/04/08 14:06:53 by zpalfi           ###   ########.fr       */
+/*   Updated: 2022/04/08 14:43:08 by zpalfi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,17 +54,13 @@ static int	thinking(t_philo *philo)
 
 void	*routine(void *param)
 {
-	int	i;
-//	pthread_t	dead_thread;
-	t_philo		*philo;
+	int		i;
+	t_philo	*philo;
 
 	philo = (t_philo *)param;
-//	printf("%d   %d\n", philo->id, philo->data->t_eat);
 	if (philo->id % 2 == 0)
 		time_sleep(200);
-//	pthread_create(&dead_thread, NULL, &philo_dead, param);
 	philo->last_eat = get_time();
-//	printf("%lld AAAAA\n", get_time() - philo->last_eat);
 	while (!philo->data->dead && philo->n_eat != 0)
 	{
 		if (philo->n_eat == 0)
@@ -76,12 +72,8 @@ void	*routine(void *param)
 		if (!thinking(philo))
 			break ;
 	}
-	i = 0;
-	while (i < philo->data->n_philo)
-	{
+	i = -1;
+	while (++i < philo->data->n_philo)
 		pthread_mutex_unlock(&philo->data->forks[i]);
-		i++;
-	}
-//	pthread_detach(dead_thread);
 	return (NULL);
 }
